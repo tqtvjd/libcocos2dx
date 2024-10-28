@@ -34,8 +34,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
-import org.cocos2dx.lib.Cocos2dxHelper;
-import org.cocos2dx.lib.Cocos2dxJavascriptJavaBridge;
 
 import java.net.URI;
 import java.util.concurrent.CountDownLatch;
@@ -66,7 +64,7 @@ class WebViewJsCallback {
     public void handleMessage(String json) {
         //确保在cocos中定义了 window.nativeMessage = function(json) {}
         String scriptStr = String.format("webMessage('%s')", json);
-        Cocos2dxHelper.runOnGLThread(() -> Cocos2dxJavascriptJavaBridge.evalString(scriptStr));
+        CocosHelper.runOnGameThreadAtForeground(() -> CocosJavascriptJavaBridge.evalString(scriptStr));
     }
 }
 
