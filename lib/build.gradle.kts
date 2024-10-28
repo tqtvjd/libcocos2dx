@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "org.cocos2dx.lib"
+    namespace = "com.cocos.lib"
     compileSdk = 34
 
     defaultConfig {
@@ -37,7 +37,7 @@ android {
 publishing {
     publications {
         create<MavenPublication>("ReleaseAar") {
-            groupId = "org.cocos2dx.lib"
+            groupId = "com.cocos.lib"
             artifactId = "lib"
             version = "1.0"
             afterEvaluate {
